@@ -18,9 +18,17 @@
                     <span *ngIf="editForm?.controls['job']?.touched && editForm?.controls['job']?.invalid">
                         El trabajo es obligatorio</span>
                 </div>
-                <button class="btn btn-primary" [disabled]="editForm?.invalid">
-                    Confirmar
-                </button>
+                <div class="btn-toolbar">
+                    <button class="btn btn-primary mr-1" [disabled]="editForm?.invalid">
+                        Confirmar
+                    </button>
+
+                    <button class="btn btn-primary mr-1 " [routerLink]="['/users']">
+                        Regresar
+                    </button>
+                </div>
+
+
             </div>
         </div>
     </form>
