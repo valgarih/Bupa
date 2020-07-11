@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.services';
-import { usersPage, Users } from 'src/app/interfaces';
+import { usersPage, Users,jobUser } from 'src/app/interfaces';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'user',
@@ -13,16 +14,23 @@ import { Router } from '@angular/router';
 export class UserComponent implements OnInit {
     public titulo;
     public users: Array<Users>;
+    public jobU: Array<jobUser>;
     public tableConfig: {
         itemsPerPage: number;
         currentPage: number;
         totalItems: number;
     };
 
+    //Modificaciones
+    selectUser: jobUser = {job:null,name:null}; 
+
     constructor(private userServ: UserService, private router: Router) {
         // this.titulo = ' ';
         this.users= [];
+        
     }
+
+    
 
     async ngOnInit() {
         const usersPage: usersPage = await this.userServ.getUsers();    
@@ -42,11 +50,19 @@ export class UserComponent implements OnInit {
         console.log('pagina: ',page);
     }
 
+
     async deleteUser(user: Users) {
         _.remove(this.users, (eachUser: Users) => {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'El usuario se elimino correctamente',
+                showConfirmButton: false,
+                timer: 1500
+              })
             return eachUser.id === user.id;
         })
-        await this.userServ.deleteUser(user.id).finally(() => {
+        await this.userServ.deleteUser(user.id).finally(() => {   
             console.log('Aquí va un toast de que se elimino bien')
         });
     }
