@@ -27,15 +27,16 @@
         <tbody>
             <tr *ngFor="let user of users | paginate: tableConfig">
                 <th scope="row" class="badge badge-light">{{user?.id}}</th>
-                <td>{{user?.first_name}} {{user?.last_name}}
+                <td (click)="InfoUsuario(user)">{{user?.first_name}} {{user?.last_name}}
                 </td>
                 <td [routerLink]="['/edit']" [queryParams]="{ 'id': user?.id }"><i class="far fa-edit"></i></td>
                 <td (click)="deleteUser(user)"><i class="fas fa-trash-alt"></i></td>
-                <td></td>
 
             </tr>
         </tbody>
+        
     </table>
+    
 
     <pagination-controls [previousLabel]="'Anterior'" [nextLabel]="'Siguiente'" (pageChange)="pageChanged($event)">
     </pagination-controls>

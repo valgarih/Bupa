@@ -21,7 +21,7 @@ export class PokemonsComponent implements OnInit {
   constructor(private userServ: UserService) { 
     this.pokemons = [];
     this.tableConfig = {
-      itemsPerPage: 20,
+      itemsPerPage: 10,
       currentPage: 1,
       totalItems: 1
   }

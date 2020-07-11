@@ -19,9 +19,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let pokemon of pokemons | paginate: tableConfig">
-                <th scope="row" class="badge badge-light">{{pokemon?.name}}</th>
-                <td>{{pokemon?.url}}
-                </td>
+                <th scope="row" >{{pokemon?.name}}</th>
+                <td class="badge badge-light">{{pokemon?.url}}</td>
             </tr>
         </tbody>
     </table>
