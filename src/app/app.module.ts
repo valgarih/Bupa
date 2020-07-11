@@ -1,18 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HttpClientModule }    from '@angular/common/http';
+import { UserComponent } from './components/user/user.component';
+import { NgxPaginationModule } from 'ngx-pagination'; 
+import { UserService } from './services/user.services';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule 
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

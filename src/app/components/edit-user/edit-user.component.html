@@ -1,0 +1,12 @@
+<!-- <h1>{{ user?.id }}</h1> -->
+<div *ngIf=editForm>
+    <form [formGroup]="editForm" (ngSubmit)="edit()">
+        <h1>Nombre: </h1>
+        <input formControlName="name">
+        <span *ngIf="editForm?.controls['name']?.touched && editForm?.controls['name']?.invalid">El nombre es obligatorio</span>
+        <h1>Trabajo: </h1>
+        <input formControlName="job">
+        <span *ngIf="editForm?.controls['job']?.touched && editForm?.controls['job']?.invalid">El trabajo es obligatorio</span>
+        <button [disabled]="editForm?.invalid">Confirmar</button>
+    </form>
+</div>
