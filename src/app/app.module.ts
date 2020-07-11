@@ -11,12 +11,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { UserService } from './services/user.services';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PokemonsComponent } from './components/pokemons/pokemons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    EditUserComponent
+    EditUserComponent,
+    PokemonsComponent
   ],
   imports: [
     BrowserModule,

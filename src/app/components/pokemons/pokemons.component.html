@@ -1,0 +1,22 @@
+<div *ngIf="pokemons?.length>0" style="text-align:center">
+       
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Url</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pokemon of pokemons | paginate: tableConfig">
+                    <th scope="row" class="badge badge-light">{{pokemon?.name}}</th>
+                    <td>{{pokemon?.url}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <pagination-controls [previousLabel]="'Anterior'" [nextLabel]="'Siguiente'" (pageChange)="pageChanged($event)">
+        </pagination-controls>
+    
+    </div>

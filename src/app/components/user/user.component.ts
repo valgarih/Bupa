@@ -21,8 +21,6 @@ export class UserComponent implements OnInit {
         totalItems: number;
     };
 
-    //Modificaciones
-    selectUser: jobUser = {job:null,name:null}; 
 
     constructor(private userServ: UserService, private router: Router) {
         // this.titulo = ' ';
